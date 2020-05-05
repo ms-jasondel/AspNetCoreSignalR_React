@@ -29,6 +29,13 @@ class Chat extends Component {
         const messages = this.state.messages.concat([text]);
         this.setState({ messages });
       });
+      
+      this.state.hubConnection.on('sendUpdate', (timeStamp) => {
+        const text = `Update: ${timeStamp}`;
+        const messages = this.state.messages.concat([text]);
+        this.setState({ messages });
+      });
+
     });
   };
 

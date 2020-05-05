@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace AspNetCoreSignalR_React.Server
 {
@@ -20,6 +22,7 @@ namespace AspNetCoreSignalR_React.Server
             }));
 
             services.AddSignalR();
+            services.AddHostedService<MyBackgroundService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
